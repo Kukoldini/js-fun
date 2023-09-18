@@ -23,8 +23,7 @@ body {
     border-bottom: 1px solid red;
 }
 .terminal {
-    overflow: auto;
-    scroll-behavior: auto;
+    overflow: scroll;
     margin: 0 auto;
     width: 70%;
     height: 500px;
