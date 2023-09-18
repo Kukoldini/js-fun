@@ -1,0 +1,41 @@
+body {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    background-color: #000;
+}
+.receive-data-button {
+    transition: .3s;
+    cursor: pointer;
+    margin: 50px auto;
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;
+    padding: 10px;
+    width: 150px;
+    background-color: rgb(59, 42, 42);
+    color: yellowgreen;
+}
+.receive-data-button:hover {
+    background-color: #000;
+    color: gray;
+    border-bottom: 1px solid red;
+}
+.terminal {
+    margin: 0 auto;
+    width: 70%;
+    height: 500px;
+    border: 2px solid rgb(168, 159, 159);
+}
+.terminal-inside {
+    height: 20px;
+    background-color: gray;
+    color: #fff;
+}
+.terminal-text {
+    margin: 10px auto 0;
+    color: yellowgreen;
+    width: 96%;
+    height: 92%;
+}
