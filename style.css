@@ -23,13 +23,17 @@ body {
     border-bottom: 1px solid red;
 }
 .terminal {
-    overflow: scroll;
+    position: relative;
+    overflow: auto;
+    scroll-behavior: auto;
     margin: 0 auto;
     width: 70%;
     height: 500px;
     border: 2px solid rgb(168, 159, 159);
 }
 .terminal-inside {
+    position: fixed;
+    width: 70%;
     height: 20px;
     background-color: gray;
     color: #fff;

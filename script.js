@@ -1,6 +1,4 @@
-const receiveBtn = document.querySelector('.receive-data-button');
 const paragraphNode = document.querySelector('.text');
-const paragraphParent = document.querySelector('.terminal-text');
 
 const nodeCloning = (contentText) => {
 
@@ -10,44 +8,80 @@ const nodeCloning = (contentText) => {
 
 }
 
-receiveBtn.addEventListener('click', () => {
+// const obj1 = {
+//   name: "John",
+//   age: 18,
+//   link: {
+//     link1: 1,
+//     kink2: 2
+//   }
+// }
+// const obj2 = {
+//   name: "Asda",
+//   age: 118,
+//   linkSecond: {
+//     linkSecond: 1,
+//     kinkThreed: {
+//       name: "Azure",
+//       age: "417"
+//     }
+//   }
+// }
+// const obj3 = {
+//   name: "Gagfield",
+//   age: 8,
+//   linkThreed: {
+//     linkThreed: 1,
+//     kinkFourd: 2
+//   }
+// }
+// const arr = [obj1, obj2, obj3];
 
-  nodeCloning("Receivind data...");
 
-  const promise = new Promise((resolve, reject) => {
-    setTimeout(() => {
-      nodeCloning("Prepairing data...");
 
-      const serverData = {
-        space: "Russia",
-        IP: "187.315.86.17",
-        host: "Eternet Walkers"
-      }
-      resolve(serverData)
-    }, 2000)
-  }).then(data => {
-    
-    const p = new Promise((resolve, reject) => {
-      
-      setTimeout(() => {
+const deepSearch = array => {
 
-        nodeCloning("Modification data...");
-        data.modify = true;
-        resolve(data)
-      }, 2000)
+  for(let index in array) {
 
-    }).then(modifiedData => {
-      setTimeout(() => {
+    const str = "--------";
+    let i = 0;
 
-        nodeCloning("Data prepared: ");
-        for(let prop in modifiedData) {
-          nodeCloning(prop + ": " + modifiedData[prop]);
+    const reccFunc = (object) => {
+
+      for(let property in object) {
+        
+        if(typeof(object[property]) !== "object") {
+            
+          nodeCloning(str.repeat(i) + property + ": " + object[property]);          
+            
+        } else {
+
+          nodeCloning(str.repeat(i) + " (Nested object) " + property + ": =>");
+          i++;
+          reccFunc(object[property]);
+            
         }
-        nodeCloning("____________________________");
-      }, 2000)
-    })
-  })
+        
+      }
+    }
 
-});
+    reccFunc(array[index]);
+
+  }
+  
+}
+
+fetch('https://jsonplaceholder.typicode.com/users')
+  .then(response => response.json())
+  .then(json => deepSearch(json));
+
+
+
+
+
+  
+
+
+
 
 
